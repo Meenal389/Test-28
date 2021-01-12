@@ -49,7 +49,11 @@ function draw() {
   ground.display()
   string.display()
   drawSprites();
- 
+  detectCollision(stone,m1)
+ detectCollision(stone,m2)
+ detectCollision(stone,m3)
+ detectCollision(stone,m4)
+ detectCollision(stone,m5)
 }
 
 function mouseDragged(){
@@ -60,5 +64,9 @@ function mouseReleased(){
 	string.fly()
 }
 
-//function detectCollision(){
-	//Matter.Body.isStatic()
+function detectCollision(lstone,random){
+	var distance=dist(lstone.body.position.x,lstone.body.position.y,random.body.position.x,random.body.position.y)
+	if(distance<=lstone.r,random.r){
+		Matter.Body.isStatic(random.body,false)
+	}
+}
